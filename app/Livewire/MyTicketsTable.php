@@ -6,14 +6,12 @@ use App\Models\Tickets\Ticket;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Carbon;
 use PowerComponents\LivewirePowerGrid\Column;
-use PowerComponents\LivewirePowerGrid\Facades\Filter;
 use PowerComponents\LivewirePowerGrid\Facades\PowerGrid;
 use PowerComponents\LivewirePowerGrid\PowerGridFields;
 use PowerComponents\LivewirePowerGrid\PowerGridComponent;
 
 final class MyTicketsTable extends PowerGridComponent
 {
-
     public string $tableName = 'my-tickets-table';
 
     public string $sortField = 'id';
@@ -36,6 +34,13 @@ final class MyTicketsTable extends PowerGridComponent
     {
         return PowerGrid::fields()
             ->add('id')
+            ->add('id_formatted', function (Ticket $model) {
+                return sprintf(
+                    '<a class="text-blue-600 visited:text-purple-600" href="ticket/view/%s">%s</a>',
+                    urlencode(e($model->id)),
+                    e($model->id)
+                );
+            })
             ->add('title')
             ->add('created_at')
             ->add('created_at_formatted', fn (Ticket $model) => Carbon::createFromTimestampMs($model->creation)->format('d/m/Y H:i:s'))
@@ -54,7 +59,7 @@ final class MyTicketsTable extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('Ticket', 'id')
+            Column::make('Ticket', 'id_formatted', 'id')
                 ->searchable()
                 ->sortable(),
 
@@ -79,11 +84,11 @@ final class MyTicketsTable extends PowerGridComponent
         ];
     }
 
-    public function filters(): array
+    /*public function filters(): array
     {
         return [
             Filter::datepicker('created_at_formatted', 'created_at'),
             Filter::datepicker('last_update_formatted', 'last_update'),
         ];
-    }
+    }*/
 }

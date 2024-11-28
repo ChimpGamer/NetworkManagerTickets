@@ -3,6 +3,7 @@
 use App\Livewire\CreateTicket;
 use App\Livewire\Login;
 use App\Livewire\Home;
+use App\Livewire\ViewTicket;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,3 +36,7 @@ Route::get('/logout', function () {
 Route::get('/ticket/create', CreateTicket::class)
     ->middleware('auth')
     ->name('ticket.create');
+
+Route::get('/ticket/view/{ticket}', ViewTicket::class)
+    ->middleware('auth')
+    ->name('ticket.view');

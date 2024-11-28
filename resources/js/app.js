@@ -13,9 +13,9 @@ import 'tinymce/models/dom/model.min.js';
 import 'tinymce/skins/ui/oxide/skin.js';
 
 import 'tinymce/skins/ui/oxide/content.js';
-import 'tinymce/skins/ui/oxide-dark/content.js';
+//import 'tinymce/skins/ui/oxide-dark/content.js';
 import 'tinymce/skins/content/default/content.js';
-import 'tinymce/skins/content/dark/content.js';
+//import 'tinymce/skins/content/dark/content.js';
 
 import 'tinymce/plugins/advlist';
 import 'tinymce/plugins/code';

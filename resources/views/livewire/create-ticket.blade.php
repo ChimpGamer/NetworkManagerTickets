@@ -1,8 +1,8 @@
 @php
     $config = [
         'license_key' => 'gpl',
-        'skin' => 'oxide-dark',
-        'content_css' => 'dark',
+        /*'skin' => 'oxide-dark',
+        'content_css' => 'dark',*/
         'plugins' => 'image media link lists searchreplace wordcount autosave'
     ];
 @endphp
