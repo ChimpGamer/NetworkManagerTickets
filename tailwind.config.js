@@ -8,15 +8,21 @@ export default withMT({
         "./resources/**/*.vue",
         './app/Livewire/**/*Table.php',
         './vendor/power-components/livewire-powergrid/resources/views/**/*.php',
-        './vendor/power-components/livewire-powergrid/src/Themes/Tailwind.php'
+        './vendor/power-components/livewire-powergrid/src/Themes/Tailwind.php',
+        "./vendor/robsontenorio/mary/src/View/Components/**/*.php"
     ],
     theme: {
         extend: {},
     },
-    plugins: [],
+    plugins: [
+        require("daisyui")
+    ],
     darkMode: 'class',
     presets: [
         require("./vendor/power-components/livewire-powergrid/tailwind.config.js"),
     ],
+    daisyui: {
+        themes: ["light", "dark"],
+    },
 });
 
