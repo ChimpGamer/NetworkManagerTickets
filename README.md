@@ -2,6 +2,9 @@
 
 <h1 align="center">Ticket<i>System</i></h1>
 
+> [!NOTE]  
+> This web interface only works with NetworkManager 2.16.9 or newer!
+
 ## Requirements
 1. PHP 8.2 or 8.3
 2. Nginx, Apache or some other web server software that supports php. Nginx is the favorite here!
