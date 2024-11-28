@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "@material-tailwind/html": "^2.3.2",
-        "flatpickr": "^4.6.13"
+        "flatpickr": "^4.6.13",
+        "tinymce": "^7.5.1"
     }
 }

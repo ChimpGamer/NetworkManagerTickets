@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\CreateTicket;
 use App\Livewire\Login;
 use App\Livewire\Home;
 use Illuminate\Support\Facades\Route;
@@ -30,3 +31,7 @@ Route::get('/logout', function () {
 
     return redirect('/');
 })->name('logout');
+
+Route::get('/ticket/create', CreateTicket::class)
+    ->middleware('auth')
+    ->name('ticket.create');

@@ -26,7 +26,7 @@
         {{-- Right side actions --}}
         <x-slot:actions>
             <x-mary-button label="My Tickets" link="/" class="btn-ghost btn-sm" responsive/>
-            <x-mary-button label="Create Ticket" link="###" class="btn-ghost btn-sm" responsive/>
+            <x-mary-button label="Create Ticket" link="{{ route('ticket.create') }}" class="btn-ghost btn-sm" responsive/>
             <x-mary-theme-toggle class="btn btn-circle btn-ghost"/>
             <x-mary-button label="Logout" link="/logout" class="btn-ghost btn-sm" responsive/>
         </x-slot:actions>
