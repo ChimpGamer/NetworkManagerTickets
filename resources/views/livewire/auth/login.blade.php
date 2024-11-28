@@ -5,7 +5,7 @@
         <x-mary-tab name="login-tab" label="Login">
             <x-mary-form wire:submit="authenticate">
                 <x-mary-input label="Username" icon="o-envelope" wire:model="username" placeholder="Username" />
-                <x-mary-password label="Password" wore:model="password" icon="o-key" placeholder="Password" right clearable />
+                <x-mary-password label="Password" icon="o-key" wire:model="password" placeholder="Password" right clearable />
 
                 <x-slot:actions>
                     <x-mary-button label="Login" class="btn-success" type="submit" spinner="save" />
