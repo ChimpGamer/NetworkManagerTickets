@@ -9,12 +9,12 @@
 
 <div>
     <x-mary-form wire:submit="submit">
-        <x-mary-input wire:model="subject" label="Subject *" placeholder="Subject" error-field="subject" autofocus />
+        <x-mary-input wire:model="subject" label="{{ __('ticket-system.input.subject.label') }}" placeholder="{{ __('ticket-system.input.description.label') }}" error-field="subject" autofocus />
 
-        <x-mary-editor wire:model="description" label="Description *" :config="$config" error-field="description" />
+        <x-mary-editor wire:model="description" label="{{ __('ticket-system.input.description.label') }}" :config="$config" error-field="description" />
 
         <x-slot:actions>
-            <x-mary-button label="Submit" class="btn-primary" type="submit" spinner="submit"></x-mary-button>
+            <x-mary-button label="{{ __('ticket-system.button.submit') }}" class="btn-primary" type="submit" spinner="submit"></x-mary-button>
         </x-slot:actions>
     </x-mary-form>
 </div>

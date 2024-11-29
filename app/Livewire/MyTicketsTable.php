@@ -2,9 +2,9 @@
 
 namespace App\Livewire;
 
+use App\Helpers\TimeUtils;
 use App\Models\Tickets\Ticket;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Support\Carbon;
 use PowerComponents\LivewirePowerGrid\Column;
 use PowerComponents\LivewirePowerGrid\Facades\PowerGrid;
 use PowerComponents\LivewirePowerGrid\PowerGridFields;
@@ -43,15 +43,15 @@ final class MyTicketsTable extends PowerGridComponent
             })
             ->add('title')
             ->add('created_at')
-            ->add('created_at_formatted', fn (Ticket $model) => Carbon::createFromTimestampMs($model->creation)->format('d/m/Y H:i:s'))
+            ->add('created_at_formatted', fn (Ticket $model) => TimeUtils::formatTimestamp($model->creation))
             ->add('last_update')
-            ->add('last_update_formatted', fn (Ticket $model) => Carbon::createFromTimestampMs($model->last_update)->format('d/m/Y H:i:s'))
+            ->add('last_update_formatted', fn (Ticket $model) => TimeUtils::formatTimestamp($model->last_update))
             ->add('active')
             ->add('active_label', function ($item) {
                 if ($item->active) {
-                    return '<span class="bg-green-100 text-black text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Active</span>';
+                    return '<span class="bg-green-100 text-black text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">'.__('ticket-system.status.active').'</span>';
                 } else {
-                    return '<span class="bg-red-100 text-black text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Closed</span>';
+                    return '<span class="bg-red-100 text-black text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">'.__('ticket-system.status.closed').'</span>';
                 }
             });
     }
@@ -59,27 +59,27 @@ final class MyTicketsTable extends PowerGridComponent
     public function columns(): array
     {
         return [
-            Column::make('Ticket', 'id_formatted', 'id')
+            Column::make(__('ticket-system.table.my-tickets.columns.ticket'), 'id_formatted', 'id')
                 ->searchable()
                 ->sortable(),
 
-            Column::make('Subject', 'title')
+            Column::make(__('ticket-system.table.my-tickets.columns.subject'), 'title')
                 ->searchable()
                 ->sortable(),
 
-            Column::make('Created at', 'created_at')
+            Column::make(__('ticket-system.table.my-tickets.columns.created_at'), 'created_at')
                 ->hidden(),
 
-            Column::make('Created at', 'created_at_formatted', 'created_at')
+            Column::make(__('ticket-system.table.my-tickets.columns.created_at'), 'created_at_formatted', 'created_at')
                 ->searchable(),
 
-            Column::make('Updated at', 'last_update')
+            Column::make(__('ticket-system.table.my-tickets.columns.updated_at'), 'last_update')
                 ->hidden(),
 
-            Column::make('Updated at', 'last_update_formatted', 'last_update')
+            Column::make(__('ticket-system.table.my-tickets.columns.updated_at'), 'last_update_formatted', 'last_update')
                 ->searchable(),
 
-            Column::make('Status', 'active_label', 'active')
+            Column::make(__('ticket-system.table.my-tickets.columns.status'), 'active_label', 'active')
                 ->sortable(),
         ];
     }

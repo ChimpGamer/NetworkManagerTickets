@@ -25,10 +25,10 @@
 
         {{-- Right side actions --}}
         <x-slot:actions>
-            <x-mary-button label="My Tickets" link="/" class="btn-ghost btn-sm" responsive/>
-            <x-mary-button label="Create Ticket" link="{{ route('ticket.create') }}" class="btn-ghost btn-sm" responsive/>
+            <x-mary-button label="{{ __('ticket-system.navbar.my-tickets') }}" link="/" class="btn-ghost btn-sm" responsive/>
+            <x-mary-button label="{{ __('ticket-system.navbar.create-ticket') }}" link="{{ route('ticket.create') }}" class="btn-ghost btn-sm" responsive/>
             <x-mary-theme-toggle class="btn btn-circle btn-ghost"/>
-            <x-mary-button label="Logout" link="/logout" class="btn-ghost btn-sm" responsive/>
+            <x-mary-button label="{{ __('ticket-system.navbar.logout') }}" link="/logout" class="btn-ghost btn-sm" responsive/>
         </x-slot:actions>
     </x-mary-nav>
 </header>
@@ -42,7 +42,7 @@
 
     <x-slot:footer>
         <div class="py-16 text-center text-sm text-black dark:text-white/70">
-            Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+            Copyright © ChimpGamer {{ now()->year }}
         </div>
     </x-slot:footer>
 </x-mary-main>
