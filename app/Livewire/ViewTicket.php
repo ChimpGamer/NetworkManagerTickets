@@ -49,6 +49,7 @@ class ViewTicket extends Component
 
     public function render(): View|Factory|Application
     {
+        abort_if($this->ticket->creator != auth()->user()->uuid, 404);
         $listItemData = [
             'name' => $this->ticket->getCreatorName(),
             'avatar' => 'https://minotar.net/helm/' . $this->ticket->creator,
