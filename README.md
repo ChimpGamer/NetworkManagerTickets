@@ -21,7 +21,7 @@
 6. Rename `.env.example` to `.env` by executing `mv .env.example .env.`
 7. Configure the settings in the `.env` file.
 8. Generate a unique key by running `php artisan key:generate`. This key will be saved in the `.env file`.
-9. Configure nginx to direct all requests to the ticket application. See Nginx Configuration Example.
+9. Configure nginx to direct all requests to the ticket application. See [Nginx Configuration Example](#Nginx-Configuration-Example)..
 
 ## Optimizations
 To improve performance there are a few things you can do. Caching! Cache the config, routes and views. You can do this by running these commands:
