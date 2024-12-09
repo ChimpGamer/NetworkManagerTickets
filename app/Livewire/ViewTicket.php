@@ -29,8 +29,6 @@ class ViewTicket extends Component
         $message = $this->description;
         $time = now()->getTimestampMs();
 
-        $username = auth()->user()->username;
-
         TicketMessage::create([
             'ticket_id' => $ticketId,
             'uuid' => $uuid,
@@ -39,7 +37,7 @@ class ViewTicket extends Component
         ]);
 
         $this->ticket->update([
-            'last_answer' => $username,
+            'last_answer' => $uuid,
             'last_update' => $time,
         ]);
 
