@@ -11,27 +11,20 @@
 </head>
 <body class="min-h-screen font-sans antialiased bg-base-200/50 dark:bg-base-200">
 
-<header>
-    <x-mary-nav sticky>
-        <x-slot:brand>
-            {{-- Drawer toggle for "main-drawer" --}}
-            <label for="main-drawer" class="lg:hidden mr-3">
-                <x-mary-icon name="o-bars-3" class="cursor-pointer"/>
-            </label>
+<x-mary-nav sticky>
+    <x-slot:brand>
+        {{-- Brand --}}
+        <img alt="logo" src="/images/full_logo.png" class="h-12" />
+    </x-slot:brand>
 
-            {{-- Brand --}}
-            <img alt="logo" src="/images/full_logo.png" class="h-12" loading="lazy" />
-        </x-slot:brand>
-
-        {{-- Right side actions --}}
-        <x-slot:actions>
-            <x-mary-button label="{{ __('ticket-system.navbar.my-tickets') }}" link="/" class="btn-ghost btn-sm" responsive/>
-            <x-mary-button label="{{ __('ticket-system.navbar.create-ticket') }}" link="{{ route('ticket.create') }}" class="btn-ghost btn-sm" responsive/>
-            <x-mary-theme-toggle class="btn btn-circle btn-ghost"/>
-            <x-mary-button label="{{ __('ticket-system.navbar.logout') }}" link="/logout" class="btn-ghost btn-sm" responsive/>
-        </x-slot:actions>
-    </x-mary-nav>
-</header>
+    {{-- Right side actions --}}
+    <x-slot:actions class="!gap-0">
+        <x-mary-button label="{{ __('ticket-system.navbar.my-tickets') }}" icon="o-inbox" link="/" class="btn-ghost btn-sm" responsive/>
+        <x-mary-button label="{{ __('ticket-system.navbar.create-ticket') }}" icon="o-envelope" link="{{ route('ticket.create') }}" class="btn-ghost btn-sm" responsive/>
+        <x-mary-theme-toggle class="btn btn-circle btn-ghost"/>
+        <x-mary-button label="{{ __('ticket-system.navbar.logout') }}" icon="o-arrow-right-start-on-rectangle" link="/logout" class="btn-ghost btn-sm" responsive/>
+    </x-slot:actions>
+</x-mary-nav>
 
 {{-- MAIN --}}
 <x-mary-main with-nav>
