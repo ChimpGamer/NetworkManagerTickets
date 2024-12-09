@@ -20,7 +20,7 @@
             </label>
 
             {{-- Brand --}}
-            <div>{{ config('app.name') }}</div>
+            <img alt="logo" src="/images/full_logo.png" class="h-12" loading="lazy" />
         </x-slot:brand>
 
         {{-- Right side actions --}}
