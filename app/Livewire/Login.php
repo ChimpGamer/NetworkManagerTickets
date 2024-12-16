@@ -6,7 +6,6 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Mary\Traits\Toast;
@@ -29,7 +28,7 @@ class Login extends Component
         if (Auth::attempt(['username' => $this->username, 'password' => $this->password])) {
             request()->session()->regenerate();
             $this->success('Logged in successfully', position: 'toast-top');
-            return Redirect::route('home');
+            $this->redirectRoute('home', navigate: true);
         } else {
             $this->error("Cannot verify the credentials !", position: 'toast-top');
         }

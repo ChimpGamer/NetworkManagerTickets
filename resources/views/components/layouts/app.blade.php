@@ -22,7 +22,7 @@
         <x-mary-button label="{{ __('ticket-system.navbar.my-tickets') }}" icon="o-inbox" link="/" class="btn-ghost btn-sm" responsive/>
         <x-mary-button label="{{ __('ticket-system.navbar.create-ticket') }}" icon="o-envelope" link="{{ route('ticket.create') }}" class="btn-ghost btn-sm" responsive/>
         <x-mary-theme-toggle class="btn btn-circle btn-ghost"/>
-        <x-mary-button label="{{ __('ticket-system.navbar.logout') }}" icon="o-arrow-right-start-on-rectangle" link="/logout" class="btn-ghost btn-sm" responsive/>
+        <livewire:logout />
     </x-slot:actions>
 </x-mary-nav>
 
