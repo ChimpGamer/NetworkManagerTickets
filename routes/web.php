@@ -19,10 +19,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('login', Login::class)
-    ->middleware('guest')
+    ->middleware(['guest', 'throttle:auth'])
     ->name('login');
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', 'throttle:web']], function () {
     Route::get('/', Home::class)->name('home');
     Route::get('/logout', Logout::class)->name('logout');
 
