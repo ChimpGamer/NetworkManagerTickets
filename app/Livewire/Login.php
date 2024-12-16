@@ -17,15 +17,16 @@ class Login extends Component
 
     public ?string $username;
     public ?string $password;
+    public ?bool $remember;
 
-    public function authenticate()
+    public function authenticate(): void
     {
         $this->validate([
             'username' => 'required',
             'password' => 'required'
         ]);
 
-        if (Auth::attempt(['username' => $this->username, 'password' => $this->password])) {
+        if (Auth::attempt(['username' => $this->username, 'password' => $this->password], $this->remember)) {
             request()->session()->regenerate();
             $this->success('Logged in successfully', position: 'toast-top');
             $this->redirectRoute('home', navigate: true);

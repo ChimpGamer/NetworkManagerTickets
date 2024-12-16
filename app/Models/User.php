@@ -36,6 +36,7 @@ class User extends Authenticatable
         'username',
         'password',
         'created_at',
+        'remember_token',
     ];
 
     /**

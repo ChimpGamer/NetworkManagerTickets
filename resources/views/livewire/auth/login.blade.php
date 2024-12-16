@@ -7,6 +7,8 @@
                 <x-mary-input label="{{ __('login.input.username.label') }}" icon="o-envelope" wire:model="username" placeholder="{{ __('login.input.username.placeholder') }}" />
                 <x-mary-password label="{{ __('login.input.password.label') }}" icon="o-key" wire:model="password" placeholder="{{ __('login.input.password.placeholder') }}" right clearable />
 
+                <x-mary-checkbox label="Remember Me" wire:model="remember" right tight />
+
                 <x-slot:actions>
                     <x-mary-button label="{{ __('login.button.login') }}" class="btn-success" type="submit" spinner="save" />
                 </x-slot:actions>
