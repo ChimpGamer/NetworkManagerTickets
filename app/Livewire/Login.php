@@ -17,7 +17,7 @@ class Login extends Component
 
     public ?string $username;
     public ?string $password;
-    public ?bool $remember;
+    public ?bool $remember = false;
 
     public function authenticate(): void
     {
