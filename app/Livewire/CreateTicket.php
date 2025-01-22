@@ -11,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\Features\SupportRedirects\Redirector;
 use Mary\Traits\Toast;
 
 class CreateTicket extends Component
@@ -23,7 +24,7 @@ class CreateTicket extends Component
     #[Validate('required', message: 'The message is required')]
     public string $description;
 
-    public function submit(): RedirectResponse
+    public function submit(): RedirectResponse|Redirector
     {
         $this->validate();
 
@@ -45,7 +46,7 @@ class CreateTicket extends Component
         ]);
 
         $this->success('Successfully created ticket!');
-        return Redirect::route('home');
+        return redirect()->intended('home');
     }
 
     public function render(): View|Factory|Application
