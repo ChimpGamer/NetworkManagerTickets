@@ -5,6 +5,8 @@ namespace App\Livewire;
 use App\Helpers\TimeUtils;
 use App\Models\Tickets\Ticket;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Auth;
+use PharIo\Manifest\Author;
 use PowerComponents\LivewirePowerGrid\Column;
 use PowerComponents\LivewirePowerGrid\Facades\PowerGrid;
 use PowerComponents\LivewirePowerGrid\PowerGridFields;
@@ -27,7 +29,7 @@ final class MyTicketsTable extends PowerGridComponent
 
     public function datasource(): Builder
     {
-        return Ticket::query();
+        return Ticket::query()->where('creator', Auth::user()->uuid);
     }
 
     public function fields(): PowerGridFields
